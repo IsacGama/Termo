@@ -1,0 +1,10 @@
+services:
+  termo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-seuusuario}/termo-vue:latest
+    container_name: termo-vue
+    ports:
+      - "8080:80"
+    restart: unless-stopped
