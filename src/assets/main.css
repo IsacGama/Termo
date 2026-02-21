@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-serif: "Libre Baskerville", Georgia, serif;
+
+  --color-correct: var(--game-correct);
+  --color-incorrect: var(--game-incorrect);
+  --color-absent: var(--game-absent);
+
+  --color-tile-empty: var(--game-tile-empty);
+  --color-tile-active: var(--game-tile-active);
+  --color-key-bg: var(--game-key-bg);
+  --color-surface: var(--game-surface);
+  --color-surface-alt: var(--game-surface-alt);
+}
+
+:root {
+  --game-correct: #22c55e;
+  --game-incorrect: #eab308;
+  --game-absent: #6b7280;
+  --game-tile-empty: #e2e8f0;
+  --game-tile-active: #bfdbfe;
+  --game-key-bg: #d1d5db;
+  --game-surface: #ffffff;
+  --game-surface-alt: #f1f5f9;
+}
+
+.dark {
+  --game-correct: #538d4e;
+  --game-incorrect: #b59f3b;
+  --game-absent: #3a3a3c;
+  --game-tile-empty: #374151;
+  --game-tile-active: #4b5563;
+  --game-key-bg: #818384;
+  --game-surface: #1f2937;
+  --game-surface-alt: #111827;
+}
+
+.high-contrast {
+  --game-correct: #00e676;
+  --game-incorrect: #ff9100;
+  --game-absent: #757575;
+}
+
+.dark.high-contrast {
+  --game-absent: #4a4a4a;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes bounce-win {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-12px); }
+  60% { transform: translateY(-6px); }
+}
+
+@keyframes pulse-cursor {
+  0%, 100% { border-color: var(--tw-border-opacity, #60a5fa); }
+  50% { border-color: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); }
+}
+
+.animate-pop {
+  animation: pop 0.1s ease-in-out;
+}
+
+.animate-flip {
+  animation: flip 0.5s ease-in-out;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-bounce-win {
+  animation: bounce-win 0.6s ease-in-out;
+}
+
+.animate-pulse-cursor {
+  animation: pulse-cursor 1.2s ease-in-out infinite;
+}
